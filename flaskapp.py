@@ -50,7 +50,7 @@ def modify_file1(unit_data , bldg_num_data, panel_name_data, panel_type_data, IP
  
 
 # Read the content of the text file
-    with open("FCU FDD TEMPLATE.txt", "r") as file:
+    with open("FCU FDD TEMPLATE.TXT", "r") as file:
         lines = file.readlines()
 
 # Modify the specific line with custom text
@@ -89,7 +89,7 @@ def modify_file1(unit_data , bldg_num_data, panel_name_data, panel_type_data, IP
         file.writelines(lines)
 
 
-def modify_file2(panel_name_data, panel_type_data, IP_address_data, panel_location_data, drawing_reference_data, rev_data, date_data, author_data, comments_data, occ_data, fss_data, static_data, vfds_data, chw_data, phw_data, sa_data, ph_data, oaz_data, phs_data, sas_data, sps_data, oafl_data, oaflsp_data, bldg_alias_data):
+def modify_file2(unit_data , bldg_num_data, panel_name_data, panel_type_data, IP_address_data, panel_location_data, drawing_reference_data, rev_data, date_data, author_data, comments_data, occ_data, fss_data, static_data, vfds_data, chw_data, phw_data, sa_data, ph_data, oaz_data, phs_data, sas_data, sps_data, oafl_data, oaflsp_data):
 
 # Read the content of the text file
     with open("AHU100OA_TEMPLATE.txt", "r") as file:
@@ -122,14 +122,14 @@ def modify_file2(panel_name_data, panel_type_data, IP_address_data, panel_locati
     lines[49] = "00590     DEFINE(SPS," + sps_data + ")" +"\n" 
     lines[51] = "00610     DEFINE(OAFL," + oafl_data + ")" +"\n" 
     lines[53] = "00630     DEFINE(OAFLSP,"+ oaflsp_data + ")" +"\n" 
-    lines[75] = "00810     DEFINE(A," + bldg_alias_data +")" +"\n"
+    lines[75] = "00810     DEFINE(A," + unit_data+"_"+bldg_num_data +")" +"\n"
 
 
 # Write the modified content back to the text file
     with open("OP2.txt", "w") as file:
         file.writelines(lines)
 
-def modify_file3(panel_name_data, panel_type_data, IP_address_data, panel_location_data, drawing_reference_data, rev_data, date_data, author_data, comments_data, occ_data, fss_data, static_data, vfds_data, chw_data, hw_data, ra_data, sa_data, ma_data, oaz_data, sas_data, sps_data, rmt_data, rmh_data, oafl_data, oaflsp_data, bldg_alias_data):
+def modify_file3(unit_data , bldg_num_data, panel_name_data, panel_type_data, IP_address_data, panel_location_data, drawing_reference_data, rev_data, date_data, author_data, comments_data, occ_data, fss_data, static_data, vfds_data, chw_data, hw_data, ra_data, sa_data, ma_data, oaz_data, sas_data, sps_data, rmt_data, rmh_data, oafl_data, oaflsp_data):
  
 
 # Read the content of the text file
@@ -166,7 +166,7 @@ def modify_file3(panel_name_data, panel_type_data, IP_address_data, panel_locati
     lines[53] = "00650     DEFINE(RMH," + rmh_data + ")" +"\n"
     lines[55] = "00654     DEFINE(OAFL," + oafl_data + ")" +"\n"
     lines[57] = "00658     DEFINE(OAFLSP," + oaflsp_data + ")" +"\n"
-    lines[81] = "00810     DEFINE(A," + bldg_alias_data +")" +"\n"
+    lines[81] = "00810     DEFINE(A," + unit_data+"_"+bldg_num_data +")" +"\n"
 
 
 # Write the modified content back to the text file
@@ -174,7 +174,7 @@ def modify_file3(panel_name_data, panel_type_data, IP_address_data, panel_locati
         file.writelines(lines)
 
 
-def modify_file4(panel_name_data, panel_type_data, IP_address_data, panel_location_data, drawing_reference_data, rev_data, date_data, author_data, comments_data, occ_data, fss_data, static_data, vfds_data, chw_data, hw_data, ra_data, sa_data, ma_data, oaz_data, ras_data, sas_data, sps_data, rmt_data, rmh_data, bldg_alias_data):
+def modify_file4(unit_data , bldg_num_data, panel_name_data, panel_type_data, IP_address_data, panel_location_data, drawing_reference_data, rev_data, date_data, author_data, comments_data, occ_data, fss_data, static_data, vfds_data, chw_data, hw_data, ra_data, sa_data, ma_data, oaz_data, ras_data, sas_data, sps_data, rmt_data, rmh_data):
  
 
 # Read the content of the text file
@@ -212,7 +212,7 @@ def modify_file4(panel_name_data, panel_type_data, IP_address_data, panel_locati
 
     lines[51] = "00550     DEFINE(RMT," + rmt_data + ")" +"\n" 
     lines[53] = "00570     C DEFINE(RMH,"+ rmh_data + ")" +"\n" 
-    lines[76] = "00810     DEFINE(A," + bldg_alias_data +")" +"\n"
+    lines[76] = "00810     DEFINE(A," + unit_data+"_"+bldg_num_data +")" +"\n"
 
 # Write the modified content back to the text file
     with open("OP4.txt", "w") as file:
@@ -261,15 +261,6 @@ def form1():
 
         modify_file1(unit_data , bldg_num_data,panel_name_data, panel_type_data, IP_address_data, panel_location_data, drawing_reference_data, rev_data, date_data, author_data, comments_data, occ_data, fss_data, static_data, vfds_data, chw_data, hw_data, sa_data, ctl_data, oaz_data, htg_data, hc_data, clg_data, rmt_data, rmh_data)
 
-        #  # Generate the content of the file
-        # file_content = generate_file_content(panel_name_data, panel_type_data, IP_address_data, ...)
-
-        # # Create a response object with the file content
-        # response = make_response(file_content)
-
-        # # Set the appropriate content type for a text file
-        # response.headers["Content-Disposition"] = "attachment; filename=OP.txt"
-        # response.headers["Content-type"] = "text/plain"
 
         # return response
         return send_file("OP.txt", as_attachment=True)
@@ -312,10 +303,13 @@ def form2():
         sps_data= request.form['sps']
         oafl_data= request.form['oafl']
         oaflsp_data= request.form['oaflsp']
-        bldg_alias_data= request.form['bldg_alias']
+        bldg_num_data= request.form['bldg_num']
+        unit_data= request.form['unit']
+
+        
 
 
-        modify_file2(panel_name_data, panel_type_data, IP_address_data, panel_location_data, drawing_reference_data, rev_data, date_data, author_data, comments_data, occ_data, fss_data, static_data, vfds_data, chw_data, phw_data, sa_data, ph_data, oaz_data, phs_data, sas_data, sps_data, oafl_data, oaflsp_data, bldg_alias_data)
+        modify_file2(unit_data , bldg_num_data, panel_name_data, panel_type_data, IP_address_data, panel_location_data, drawing_reference_data, rev_data, date_data, author_data, comments_data, occ_data, fss_data, static_data, vfds_data, chw_data, phw_data, sa_data, ph_data, oaz_data, phs_data, sas_data, sps_data, oafl_data, oaflsp_data)
 
         
         return send_file("OP2.txt", as_attachment=True)
@@ -356,10 +350,12 @@ def form3():
         rmh_data= request.form['rmh']
         oafl_data= request.form['oafl']
         oaflsp_data= request.form['oaflsp']
-        bldg_alias_data= request.form['bldg_alias']
+        bldg_num_data= request.form['bldg_num']
+        unit_data= request.form['unit']
 
 
-        modify_file3(panel_name_data, panel_type_data, IP_address_data, panel_location_data, drawing_reference_data, rev_data, date_data, author_data, comments_data, occ_data, fss_data, static_data, vfds_data, chw_data, hw_data, ra_data, sa_data, ma_data, oaz_data, sas_data, sps_data, rmt_data, rmh_data, oafl_data, oaflsp_data, bldg_alias_data)
+
+        modify_file3(unit_data , bldg_num_data, panel_name_data, panel_type_data, IP_address_data, panel_location_data, drawing_reference_data, rev_data, date_data, author_data, comments_data, occ_data, fss_data, static_data, vfds_data, chw_data, hw_data, ra_data, sa_data, ma_data, oaz_data, sas_data, sps_data, rmt_data, rmh_data, oafl_data, oaflsp_data)
 
         
         return send_file("OP3.txt", as_attachment=True)
@@ -399,10 +395,12 @@ def form4():
         sps_data= request.form['sps']
         rmt_data= request.form['rmt']
         rmh_data= request.form['rmh']
-        bldg_alias_data= request.form['bldg_alias']
+        bldg_num_data= request.form['bldg_num']
+        unit_data= request.form['unit']
+
         
 
-        modify_file4(panel_name_data, panel_type_data, IP_address_data, panel_location_data, drawing_reference_data, rev_data, date_data, author_data, comments_data, occ_data, fss_data, static_data, vfds_data, chw_data, hw_data, ra_data, sa_data, ma_data, oaz_data, ras_data, sas_data, sps_data, rmt_data, rmh_data, bldg_alias_data)
+        modify_file4(unit_data , bldg_num_data, panel_name_data, panel_type_data, IP_address_data, panel_location_data, drawing_reference_data, rev_data, date_data, author_data, comments_data, occ_data, fss_data, static_data, vfds_data, chw_data, hw_data, ra_data, sa_data, ma_data, oaz_data, ras_data, sas_data, sps_data, rmt_data, rmh_data)
 
         
         return send_file("OP4.txt", as_attachment=True)
