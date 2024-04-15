@@ -106,7 +106,7 @@ def modify_file2(unit_data , bldg_num_data, panel_name_data, panel_type_data, IP
     lines[12] = "00220	  C DRAWING REFERENCES - " + drawing_reference_data +"\n" 
 
     lines[14] = "00240	  C	  REV 	  DATE			  AUTHOR			  COMMENTS"+"\n"
-    lines[15] = "00250	  C        "+rev_data+"    "+date_data+"                    "+author_data+"                    "+comments_data+"\n"
+    lines[15] = "00250	  C        "+rev_data+"       "+date_data+"                      "+author_data+"                          "+comments_data+"\n"
     lines[16] = "00260	  C	"+"\n"
     lines[17] = "00270	  C	"+"\n"
     
@@ -116,15 +116,15 @@ def modify_file2(unit_data , bldg_num_data, panel_name_data, panel_type_data, IP
     lines[33] = "00430     DEFINE(VFDS," + vfds_data +")"  +"\n" 
     lines[35] = "00450	  DEFINE(CHW,"+ chw_data + ")" +"\n" 
     lines[37] = "00470	  DEFINE(PHW," + phw_data +")"+"\n" 
-    lines[39] = "00490	  DEFINE(SA_T," + sa_data + ")"+"\n" 
-    lines[41] = "00510	  DEFINE(PH," + ph_data + ")" +"\n" 
-    lines[43] = "00530     DEFINE(OAZ," + oaz_data + ")" +"\n" 
-    lines[45] = "00550     DEFINE(PHS," + phs_data + ")" +"\n" 
-    lines[47] = "00570     DEFINE(SAS," + sas_data +")" + "\n" 
-    lines[49] = "00590     DEFINE(SPS," + sps_data + ")" +"\n" 
-    lines[51] = "00610     DEFINE(OAFL," + oafl_data + ")" +"\n" 
-    lines[53] = "00630     DEFINE(OAFLSP,"+ oaflsp_data + ")" +"\n" 
-    lines[75] = "00810     DEFINE(A," + unit_data+"_"+bldg_num_data +")" +"\n"
+    lines[39] = "00510	  DEFINE(SA_T," + sa_data + ")"+"\n" 
+    lines[41] = "00530	  DEFINE(PH," + ph_data + ")" +"\n" 
+    lines[43] = "00550     DEFINE(OAZ," + oaz_data + ")" +"\n" 
+    lines[45] = "00570     DEFINE(PHS," + phs_data + ")" +"\n" 
+    lines[47] = "00590     DEFINE(SAS," + sas_data +")" + "\n" 
+    lines[49] = "00610     DEFINE(SPS," + sps_data + ")" +"\n" 
+    lines[51] = "00654     DEFINE(OAFL," + oafl_data + ")" +"\n" 
+    lines[53] = "00658     DEFINE(OAFLSP,"+ oaflsp_data + ")" +"\n" 
+    lines[75] = "00880     DEFINE(A," + unit_data+"_"+bldg_num_data +")" +"\n"
 
 
 # Write the modified content back to the text file
@@ -140,7 +140,7 @@ def modify_file3(unit_data , bldg_num_data, panel_name_data, panel_type_data, IP
 
 # Modify the specific line with custom text
 
-    lines[2] = "00120	C *********************FAN COIL UNIT ["+unit_data+"] SMART FDD***********************************"+"\n"
+    lines[2] = "00120	  C *********************FAN COIL UNIT ["+unit_data+"] SMART FDD***********************************"+"\n"
     lines[7] = "00170	  C PANEL NAME - " + panel_name_data +"\n"  
     lines[8] = "00180	  C PANEL TYPE - " + panel_type_data +"\n"  
     lines[9] = "00190	  C IP ADDRESS - " + IP_address_data +"\n" 
@@ -149,7 +149,7 @@ def modify_file3(unit_data , bldg_num_data, panel_name_data, panel_type_data, IP
     lines[12] = "00220	  C DRAWING REFERENCES - " + drawing_reference_data +"\n" 
 
     lines[14] = "00240	  C	   REV 	   DATE 			  AUTHOR			 COMMENTS"+"\n"
-    lines[15] = "00250	  C       "+rev_data+"    "+date_data+"                    "+author_data+"                    "+comments_data+"\n"
+    lines[15] = "00250	  C        "+rev_data+"       "+date_data+"                            "+author_data+"                            "+comments_data+"\n"
     lines[16] = "00260	  C	"+"\n"
     lines[17] = "00270	  C	"+"\n"
     
@@ -170,7 +170,7 @@ def modify_file3(unit_data , bldg_num_data, panel_name_data, panel_type_data, IP
     lines[53] = "00650     DEFINE(RMH," + rmh_data + ")" +"\n"
     lines[55] = "00654     DEFINE(OAFL," + oafl_data + ")" +"\n"
     lines[57] = "00658     DEFINE(OAFLSP," + oaflsp_data + ")" +"\n"
-    lines[81] = "00810     DEFINE(A," + unit_data+"_"+bldg_num_data +")" +"\n"
+    lines[81] = "00880     DEFINE(A," + unit_data+"_"+bldg_num_data +")" +"\n"
 
 
 # Write the modified content back to the text file
@@ -187,7 +187,7 @@ def modify_file4(unit_data , bldg_num_data, panel_name_data, panel_type_data, IP
 
 # Modify the specific line with custom text
 
-    lines[2] = "00120	C *********************FAN COIL UNIT ["+unit_data+"] SMART FDD***********************************"+"\n"
+    lines[2] = "00120	  C *********************FAN COIL UNIT ["+unit_data+"] SMART FDD***********************************"+"\n"
     lines[7] = "00080     C PANEL NAME - " + panel_name_data +"\n"  
     lines[8] = "00090     C PANEL TYPE - " + panel_type_data +"\n"  
     lines[9] = "00100     C IP ADDRESS - "+ IP_address_data +"\n" 
@@ -196,28 +196,28 @@ def modify_file4(unit_data , bldg_num_data, panel_name_data, panel_type_data, IP
     lines[13] = "00140	  C DRAWING REFERENCES - " + drawing_reference_data +"\n" 
 
     lines[15] = "00160	  C	 REV 	 DATE			 AUTHOR			 COMMENTS"+"\n"
-    lines[16] = "00170	  C       "+rev_data+"    "+date_data+"                    "+author_data+"                    "+comments_data+"\n"
+    lines[16] = "00170	  C       "+rev_data+"      "+date_data+"                    "+author_data+"                     "+comments_data+"\n"
     lines[17] = "00180	  C	"+"\n"
     lines[18] = "00190     C "+"\n"
     
 
-    lines[27] = "00290     DEFINE(OCC,"+ occ_data + ")"  +"\n"
-    lines[29] = "00310     DEFINE(FSS," + fss_data + ")"  +"\n" 
-    lines[31] = "00330     DEFINE(STATIC_P," + static_data + ")" +"\n" 
-    lines[33] = "00350     DEFINE(VFDS," + vfds_data +")"  +"\n" 
-    lines[35] = "00370     DEFINE(CHW,"+ chw_data + ")" +"\n" 
-    lines[37] = "00390     DEFINE(HW," + hw_data +")"+"\n" 
-    lines[39] = "00410     DEFINE(RA_T," + ra_data +")"+"\n" 
-    lines[39] = "00430     DEFINE(SA_T," + sa_data +")"+"\n" 
-    lines[39] = "00450     DEFINE(MA_T," + ma_data +")"+"\n" 
+    lines[28] = "00290     DEFINE(OCC,"+ occ_data + ")"  +"\n"
+    lines[30] = "00310     DEFINE(FSS," + fss_data + ")"  +"\n" 
+    lines[32] = "00330     DEFINE(STATIC_P," + static_data + ")" +"\n" 
+    lines[34] = "00350     DEFINE(VFDS," + vfds_data +")"  +"\n" 
+    lines[36] = "00370     DEFINE(CHW,"+ chw_data + ")" +"\n" 
+    lines[38] = "00390     DEFINE(HW," + hw_data +")"+"\n" 
+    lines[40] = "00410     DEFINE(RA_T," + ra_data +")"+"\n" 
+    lines[42] = "00430     DEFINE(SA_T," + sa_data +")"+"\n" 
+    lines[44] = "00450     DEFINE(MA_T," + ma_data +")"+"\n" 
 
-    lines[43] = "00470     DEFINE(OAZ," + oaz_data + ")" +"\n" 
-    lines[45] = "00490     DEFINE(RAS," + ras_data + ")" +"\n" 
-    lines[47] = "00501     DEFINE(SAS," + sas_data + ")" +"\n" 
-    lines[49] = "00530     DEFINE(SPS," + sps_data +")" + "\n" 
+    lines[46] = "00470     DEFINE(OAZ," + oaz_data + ")" +"\n" 
+    lines[48] = "00490     DEFINE(RAS," + ras_data + ")" +"\n" 
+    lines[50] = "00501     DEFINE(SAS," + sas_data + ")" +"\n" 
+    lines[52] = "00530     DEFINE(SPS," + sps_data +")" + "\n" 
 
-    lines[51] = "00550     DEFINE(RMT," + rmt_data + ")" +"\n" 
-    lines[53] = "00570     C DEFINE(RMH,"+ rmh_data + ")" +"\n" 
+    lines[54] = "00550     DEFINE(RMT," + rmt_data + ")" +"\n" 
+    lines[56] = "00570     C DEFINE(RMH,"+ rmh_data + ")" +"\n" 
     lines[79] = "00810     DEFINE(A," + unit_data+"_"+bldg_num_data +")" +"\n"
 
 # Write the modified content back to the text file
