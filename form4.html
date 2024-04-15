@@ -1,0 +1,256 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FCU FDD Form</title>
+    <style>
+        .form-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Two columns */
+            gap: 20px; /* Gap between columns */
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        /* Adjust styles as needed */
+        label {
+            font-weight: bold;
+        }
+
+        /* input[type="text"],
+        input[type="number"], */
+        input[type="submit"],
+        button[type="button"] {
+            width: 100%;
+            padding: 10px; /* Increase padding to adjust button size */
+            margin-top: 5px;
+            box-sizing: border-box;
+            font-size: 16px; /* Adjust font size if needed */
+        }
+
+        input[type="text"] {
+            width: 50%; /* Adjust the width as needed */
+        }
+
+        .column-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .image-container {
+            display: flex;
+            align-items: center; /* Vertically center the image and text */
+        }
+
+        .image-container img {
+            width: 100px; /* Adjust image width as needed */
+            height: auto;
+            margin-right: 10px; /* Add space between the image and text */
+        }
+
+    </style>
+</head>
+<body>
+    <h1>
+        <!-- <img src="{{url_for('static', filename='FDD LOGOS.png')}}" style="width: 200px; height: auto;"> -->
+        <div class="image-container">
+            <img src="{{url_for('static', filename='FDD LOGOS.png')}}" alt="Logo">
+            <p>Utilities and Engineering Services<br>PPCL Generator<br>AHU BACNET</p>
+        </div>
+    </h1>
+    
+    
+
+    <form action="/form4" method="POST" class="form-container">
+        <fieldset>
+            <legend>General Information</legend>
+            <div class="form-group">
+                <label for="panel_name">Panel Name:</label>
+                <input type="text" name="panel_name" id="panel_name" required><br><br>
+
+            </div>
+
+            <div>
+                <label for="panel_type">Panel Type:</label>
+                <input type="text" name="panel_type" id="panel_type" required><br><br>
+
+            </div>
+
+            <div>
+                <label for="IP_address">IP Address:</label>
+                <input type="text" id="IP_address" name="IP_address" required><br><br>
+
+            </div>
+
+            <div>
+                <label for="panel_location">Panel Location:</label>
+                <input type="text" id="panel_location" name="panel_location" required><br><br>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Equipment Details</legend>
+            <div class="form-group">
+                <label for="drawing_reference">Drawing Reference:</label>
+                <input type="text" id="drawing_reference" name="drawing_reference" ><br><br>
+
+            </div>
+
+            <div>
+                <label for="bldg_num">Building Number:</label>
+                <input type="number" id="bldg_num" name="bldg_num" required><br><br>
+
+            </div>
+
+            <div>
+                <label for="unit">Unit Number:</label>
+                <input type="text" id="unit" name="unit" required><br><br>
+
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Revision Information</legend>
+            <div class="form-group">
+                <label for="rev">Revision:</label>
+                <input type="number" id="rev" name="rev" required><br><br>
+
+            </div>
+
+            <div>
+                <label for="date">Date:</label>
+                <input type="text" id="date" name="date" required><br><br>
+
+            </div>
+
+            <div>
+                <label for="author">Author:</label>
+                <input type="text" id="author" name="author" required><br><br>
+
+            </div>
+
+            <div>
+                <label for="comments">Comments:</label>
+                <input type="text" id="comments" name="comments" required><br><br>
+        
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Points and Attributes</legend>
+            <div class="form-group">
+                <label for="occ">Occupancy:</label>
+                <input type="text" id="occ" name="occ" required><br><br>
+        
+            </div>
+
+            <div>
+                <label for="fss">Fan Start/Stop:</label>
+                <input type="text" id="fss" name="fss" required><br><br>
+        
+            </div>
+
+            <div>
+                <label for="static">Static Pressure:</label>
+                <input type="text" id="static" name="static" required><br><br>
+        
+            </div>
+
+            <div>
+                <label for="vfds">VFD Speed :</label>
+                <input type="text" id="vfds" name="vfds" required><br><br>
+        
+            </div>
+
+            <div>
+                <label for="chw">Chill Water Temperature:</label>
+                <input type="text" id="chw" name="chw" required><br><br>
+        
+                
+            </div>
+
+            <div>
+                <label for="hw">Hot Water Temperature:</label>
+                <input type="text" id="hw" name="hw" required><br><br>
+        
+                
+            </div>
+
+            <div>
+                <label for="ra">Return Air :</label>
+                <input type="text" id="ra" name="ra" required><br><br>
+        
+                
+            </div>
+
+            <div>
+                <label for="sa">Supply Air Temperature:</label>
+                <input type="text" id="sa" name="sa" required><br><br>
+        
+                
+            </div>
+
+            <div>
+                <label for="ma">Mixed Air:</label>
+                <input type="text" id="ma" name="ma" required><br><br>
+        
+                
+            </div>
+        
+            <div>
+                <label for="oaz">Outside Air Temperature:</label>
+                <input type="text" id="oaz" name="oaz" required><br><br>
+        
+                
+            </div>
+
+
+            <div>
+                <label for="ras">Return Air Setpoint:</label>
+                <input type="text" id="ras" name="ras" required><br><br>
+        
+                
+            </div>
+
+            <div>
+                <label for="sas">Supply Air Temperature Setpoint:</label>
+                <input type="text" id="sas" name="sas" required><br><br>
+        
+                
+            </div>
+
+            <div>
+                <label for="sps">Supply Air Static Poin Setpoint :</label>
+                <input type="text" id="sps" name="sps" required><br><br>
+        
+                
+            </div>
+
+
+            <div>
+                <label for="rmt">Room Temperature:</label>
+                <input type="text" id="rmt" name="rmt" required><br><br>
+        
+                
+            </div>
+
+            <div>
+                <label for="rmh">Room Humidity:</label>
+                <input type="text" id="rmh" name="rmh" required><br><br>
+
+
+            <div>
+        </fieldset>
+
+        <div class="column-buttons">
+            <input type="submit" value="Submit">
+        </div>
+        <a href="/"><button type="button">Back to Home</button></a>
+    </form>
+    
+</body>
+</html>
