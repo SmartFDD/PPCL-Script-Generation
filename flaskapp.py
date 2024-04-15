@@ -96,6 +96,8 @@ def modify_file2(unit_data , bldg_num_data, panel_name_data, panel_type_data, IP
         lines = file.readlines()
 
 # Modify the specific line with custom text
+
+    lines[2] = "00120	C *********************FAN COIL UNIT ["+unit_data+"] SMART FDD***********************************"+"\n"
     lines[7] = "00170     C PANEL NAME - " + panel_name_data +"\n"  
     lines[8] = "00180	  C PANEL TYPE - " + panel_type_data +"\n"  
     lines[9] = "00190	  C IP ADDRESS - " + IP_address_data +"\n" 
@@ -137,6 +139,8 @@ def modify_file3(unit_data , bldg_num_data, panel_name_data, panel_type_data, IP
         lines = file.readlines()
 
 # Modify the specific line with custom text
+
+    lines[2] = "00120	C *********************FAN COIL UNIT ["+unit_data+"] SMART FDD***********************************"+"\n"
     lines[7] = "00170	  C PANEL NAME - " + panel_name_data +"\n"  
     lines[8] = "00180	  C PANEL TYPE - " + panel_type_data +"\n"  
     lines[9] = "00190	  C IP ADDRESS - " + IP_address_data +"\n" 
@@ -182,12 +186,14 @@ def modify_file4(unit_data , bldg_num_data, panel_name_data, panel_type_data, IP
         lines = file.readlines()
 
 # Modify the specific line with custom text
+
+    lines[2] = "00120	C *********************FAN COIL UNIT ["+unit_data+"] SMART FDD***********************************"+"\n"
     lines[7] = "00080     C PANEL NAME - " + panel_name_data +"\n"  
     lines[8] = "00090     C PANEL TYPE - " + panel_type_data +"\n"  
     lines[9] = "00100     C IP ADDRESS - "+ IP_address_data +"\n" 
 
-    lines[11] = "00130	  C PANEL LOCATION - " + panel_location_data +"\n" 
-    lines[12] = "00140	  C DRAWING REFERENCES - " + drawing_reference_data +"\n" 
+    lines[12] = "00130	  C PANEL LOCATION - " + panel_location_data +"\n" 
+    lines[13] = "00140	  C DRAWING REFERENCES - " + drawing_reference_data +"\n" 
 
     lines[15] = "00160	  C	 REV 	 DATE			 AUTHOR			 COMMENTS"+"\n"
     lines[16] = "00170	  C       "+rev_data+"    "+date_data+"                    "+author_data+"                    "+comments_data+"\n"
@@ -212,7 +218,7 @@ def modify_file4(unit_data , bldg_num_data, panel_name_data, panel_type_data, IP
 
     lines[51] = "00550     DEFINE(RMT," + rmt_data + ")" +"\n" 
     lines[53] = "00570     C DEFINE(RMH,"+ rmh_data + ")" +"\n" 
-    lines[76] = "00810     DEFINE(A," + unit_data+"_"+bldg_num_data +")" +"\n"
+    lines[79] = "00810     DEFINE(A," + unit_data+"_"+bldg_num_data +")" +"\n"
 
 # Write the modified content back to the text file
     with open("OP4.txt", "w") as file:
