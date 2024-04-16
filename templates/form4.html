@@ -115,13 +115,6 @@
 
         <fieldset>
             <legend>Revision Information</legend>
-
-            <div>
-                <label>Multiple Revision:</label>
-                <label><input type="radio" name="rev_type" value="normal" checked> Normal</label>
-                <label><input type="radio" name="rev_type" value="additional"> Additional</label>
-            </div>
-
             <div class="form-group">
                 <label for="rev">Revision:</label>
                 <input type="number" id="rev" name="rev" required min="1"><br><br>
@@ -146,55 +139,55 @@
         
             </div>
 
-            <div id="additionalInfo" style="display: none;"> 
-                <!-- Additional information fields -->
-                <div class="form-group">
-                    <label for="rev2">Revision:</label>
-                    <input type="number" id="rev2" name="rev2" required min="1"><br><br>
-    
-                </div>
-    
-                <div>
-                    <label for="date2">Date:</label>
-                    <input type="text" id="date2" name="date2" required><br><br>
-    
-                </div>
-    
-                <div>
-                    <label for="author2">Author:</label>
-                    <input type="text" id="author2" name="author2" required><br><br>
-    
-                </div>
-    
-                <div>
-                    <label for="comments2">Comments:</label>
-                    <input type="text" id="comments2" name="comments2" required><br><br>
-            
-                </div>
+            <!-- Radio button for additional information -->
+            <div>
+                <label for="additional_info">Additional Information:</label><br>
+                <input type="radio" id="yes" name="radio_option" value="yes">
+                <label for="yes">Yes</label>
+                <input type="radio" id="no" name="radio_option" value="no" checked>
+                <label for="no">No</label><br><br>
+            </div>
 
-                <div class="form-group">
-                    <label for="rev3">Revision:</label>
-                    <input type="number" id="rev3" name="rev3" required min="1"><br><br>
-    
-                </div>
-    
-                <div>
-                    <label for="date3">Date:</label>
-                    <input type="text" id="date3" name="date3" required><br><br>
-    
-                </div>
-    
-                <div>
-                    <label for="author3">Author:</label>
-                    <input type="text" id="author3" name="author3" required><br><br>
-    
-                </div>
-    
-                <div>
-                    <label for="comments3">Comments:</label>
-                    <input type="text" id="comments3" name="comments3" required><br><br>
-            
-                </div>
+            <!-- Additional fields, initially hidden -->
+            <div id="additional_info_fields" style="display: none;">
+                <label for="rev2">Revision:</label>
+                <input type="number" id="rev2" name="rev2" min="1"><br><br>
+            </div>
+
+            <div id="additional_info_fields2" style="display: none;">
+                <label for="date">Date:</label>
+                <input type="text" id="date2" name="date2"><br><br>
+            </div>
+
+            <div id="additional_info_fields3" style="display: none;">
+                <label for="author2">Author:</label>
+                <input type="text" id="author2" name="author2"><br><br>
+            </div>
+
+            <div id="additional_info_fields4" style="display: none;">
+                <label for="comments2">Comments :</label>
+                <input type="text" id="comments2" name="comments2"><br><br>
+            </div>
+
+
+            <div id="additional_info_fields5" style="display: none;">
+                <label for="rev3">Revision:</label>
+                <input type="number" id="rev3" name="rev3" min="1"><br><br>
+            </div>
+
+            <div id="additional_info_fields6" style="display: none;">
+                <label for="date">Date:</label>
+                <input type="text" id="date3" name="date3"><br><br>
+            </div>
+
+            <div id="additional_info_fields7" style="display: none;">
+                <label for="author3">Author:</label>
+                <input type="text" id="author3" name="author3"><br><br>
+            </div>
+
+            <div id="additional_info_fields8" style="display: none;">
+                <label for="comments3">Comments :</label>
+                <input type="text" id="comments3" name="comments3"><br><br>
             </div>
         </fieldset>
 
@@ -309,18 +302,51 @@
         </div>
         <a href="/"><button type="button">Back to Home</button></a>
     </form>
+
+    <!-- JavaScript to toggle visibility of additional fields -->
     <script>
-        // JavaScript to toggle display of additional information fields based on radio button selection
-        document.querySelectorAll('input[name="rev_type"]').forEach((radio) => {
-            radio.addEventListener('change', function() {
-                const additionalInfo = document.getElementById('additionalInfo');
-                if (this.value === 'additional') {
-                    additionalInfo.style.display = 'block';
-                } else {
-                    additionalInfo.style.display = 'none';
-                }
-            });
+        // Function to toggle visibility of additional fields
+        function toggleAdditionalFields() {
+            var additionalInfoFields1 = document.getElementById("additional_info_fields");
+            var additionalInfoFields2 = document.getElementById("additional_info_fields2");
+            var additionalInfoFields3 = document.getElementById("additional_info_fields3");
+            var additionalInfoFields4 = document.getElementById("additional_info_fields4");
+            var additionalInfoFields5 = document.getElementById("additional_info_fields5");
+            var additionalInfoFields6 = document.getElementById("additional_info_fields6");
+            var additionalInfoFields7 = document.getElementById("additional_info_fields7");
+            var additionalInfoFields8 = document.getElementById("additional_info_fields8");
+            var radioYes = document.getElementById("yes");
+
+            // If "Yes" is checked, show additional fields; otherwise, hide them
+            if (radioYes.checked) {
+                additionalInfoFields1.style.display = "block";
+                additionalInfoFields2.style.display = "block";
+                additionalInfoFields3.style.display = "block";
+                additionalInfoFields4.style.display = "block";
+                additionalInfoFields5.style.display = "block";
+                additionalInfoFields6.style.display = "block";
+                additionalInfoFields7.style.display = "block";
+                additionalInfoFields8.style.display = "block";
+            } else {
+                additionalInfoFields1.style.display = "none";
+                additionalInfoFields2.style.display = "none";
+                additionalInfoFields3.style.display = "none";
+                additionalInfoFields4.style.display = "none";
+                additionalInfoFields5.style.display = "none";
+                additionalInfoFields6.style.display = "none";
+                additionalInfoFields7.style.display = "none";
+                additionalInfoFields8.style.display = "none";
+            }
+        }
+
+        // Add event listener to the radio buttons to trigger the toggle function
+        var radioButtons = document.getElementsByName("radio_option");
+        radioButtons.forEach(function(radioButton) {
+            radioButton.addEventListener("change", toggleAdditionalFields);
         });
+
+        // Initially call the toggle function to set the initial visibility state
+        toggleAdditionalFields();
     </script>
     
 </body>

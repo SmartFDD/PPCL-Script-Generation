@@ -39,20 +39,14 @@ ma_data=''
 bldg_num_data=''
 template_data=''
 unit_data=''
-
-rev_data2=''
-date_data2=''
-author_data2=''
-comments_data2=''
-
-# rev_data2, date_data2, author_data2, comments_data2
-
-
-rev_data3=''
-date_data3=''
-author_data3=''
-comments_data3=''
-
+rev2=''
+date2=''
+author2 =''
+comments2 =''
+rev3=''
+date3=''
+author3 =''
+comments3 =''
 
 app = Flask(__name__)
 
@@ -60,7 +54,7 @@ app = Flask(__name__)
 
 # building data = number _ template _ unit
 
-def modify_file1(unit_data , bldg_num_data, panel_name_data, panel_type_data, IP_address_data, panel_location_data, drawing_reference_data, rev_data, date_data, author_data, comments_data, rev_data2, date_data2, author_data2, comments_data2 , rev_data3, date_data3, author_data3, comments_data3, occ_data, fss_data, static_data, vfds_data, chw_data, hw_data, sa_data, ctl_data, oaz_data, htg_data, hc_data, clg_data, rmt_data, rmh_data):
+def modify_file1(rev2, date2, author2, comments2, rev3, date3, author3, comments3, unit_data , bldg_num_data, panel_name_data, panel_type_data, IP_address_data, panel_location_data, drawing_reference_data, rev_data, date_data, author_data, comments_data, occ_data, fss_data, static_data, vfds_data, chw_data, hw_data, sa_data, ctl_data, oaz_data, htg_data, hc_data, clg_data, rmt_data, rmh_data):
  
 
 # Read the content of the text file
@@ -78,9 +72,9 @@ def modify_file1(unit_data , bldg_num_data, panel_name_data, panel_type_data, IP
     lines[12] = "00220	C DRAWING REFERENCES - " + drawing_reference_data +"\n" 
 
     lines[14] = "00240	C	REV 	DATE			AUTHOR			COMMENTS"+"\n"
-    lines[15] = "00250	C        "+rev_data+"       "+date_data+"                      "+author_data+"                          "+comments_data+"\n"
-    lines[16] = "00260	C        "+rev_data2+"       "+date_data2+"                      "+author_data2+"                          "+comments_data2+"\n"
-    lines[17] = "00270	C        "+rev_data3+"       "+date_data3+"                      "+author_data3+"                          "+comments_data3+"\n"
+    lines[15] = "00250	C       "+rev_data+"    "+date_data+"                    "+author_data+"                    "+comments_data+"\n"
+    lines[16] = "00260	C       "+rev2+"    "+date2+"                    "+author2+"                    "+comments2+"\n"
+    lines[17] = "00270	C       "+rev3+"    "+date3+"                    "+author3+"                    "+comments3+"\n"
     lines[27] = "00370	DEFINE(OCC," + occ_data + ")"  +"\n"
     lines[29] = "00390	DEFINE(FSS," + fss_data + ")"  +"\n" 
     lines[31] = "00410	DEFINE(STATIC_P," + static_data + ")" +"\n" 
@@ -103,7 +97,7 @@ def modify_file1(unit_data , bldg_num_data, panel_name_data, panel_type_data, IP
         file.writelines(lines)
 
 
-def modify_file2(unit_data , bldg_num_data, panel_name_data, panel_type_data, IP_address_data, panel_location_data, drawing_reference_data, rev_data, date_data, author_data, comments_data, rev_data2, date_data2, author_data2, comments_data2 , rev_data3, date_data3, author_data3, comments_data3, occ_data, fss_data, static_data, vfds_data, chw_data, phw_data, sa_data, ph_data, oaz_data, phs_data, sas_data, sps_data, oafl_data, oaflsp_data):
+def modify_file2(rev2, date2, author2, comments2, rev3, date3, author3, comments3, unit_data , bldg_num_data, panel_name_data, panel_type_data, IP_address_data, panel_location_data, drawing_reference_data, rev_data, date_data, author_data, comments_data, occ_data, fss_data, static_data, vfds_data, chw_data, phw_data, sa_data, ph_data, oaz_data, phs_data, sas_data, sps_data, oafl_data, oaflsp_data):
 
 # Read the content of the text file
     with open("AHU100OA_TEMPLATE.txt", "r") as file:
@@ -121,8 +115,8 @@ def modify_file2(unit_data , bldg_num_data, panel_name_data, panel_type_data, IP
 
     lines[14] = "00240	  C	  REV 	  DATE			  AUTHOR			  COMMENTS"+"\n"
     lines[15] = "00250	  C        "+rev_data+"       "+date_data+"                      "+author_data+"                          "+comments_data+"\n"
-    lines[16] = "00260	  C        "+rev_data2+"       "+date_data2+"                      "+author_data2+"                          "+comments_data2+"\n"
-    lines[17] = "00270	  C        "+rev_data3+"       "+date_data3+"                      "+author_data3+"                          "+comments_data3+"\n"
+    lines[16] = "00260	  C       "+rev2+"    "+date2+"                    "+author2+"                    "+comments2+"\n"
+    lines[17] = "00270	  C       "+rev3+"    "+date3+"                    "+author3+"                    "+comments3+"\n"
     
     lines[27] = "00370     DEFINE(OCC," + occ_data + ")"  +"\n"
     lines[29] = "00390	  DEFINE(FSS," + fss_data + ")"  +"\n" 
@@ -145,7 +139,7 @@ def modify_file2(unit_data , bldg_num_data, panel_name_data, panel_type_data, IP
     with open("OP2.txt", "w") as file:
         file.writelines(lines)
 
-def modify_file3(unit_data , bldg_num_data, panel_name_data, panel_type_data, IP_address_data, panel_location_data, drawing_reference_data, rev_data, date_data, author_data, comments_data, rev_data2, date_data2, author_data2, comments_data2 , rev_data3, date_data3, author_data3, comments_data3, occ_data, fss_data, static_data, vfds_data, chw_data, hw_data, ra_data, sa_data, ma_data, oaz_data, sas_data, sps_data, rmt_data, rmh_data, oafl_data, oaflsp_data):
+def modify_file3(rev2, date2, author2, comments2, rev3, date3, author3, comments3, unit_data , bldg_num_data, panel_name_data, panel_type_data, IP_address_data, panel_location_data, drawing_reference_data, rev_data, date_data, author_data, comments_data, occ_data, fss_data, static_data, vfds_data, chw_data, hw_data, ra_data, sa_data, ma_data, oaz_data, sas_data, sps_data, rmt_data, rmh_data, oafl_data, oaflsp_data):
  
 
 # Read the content of the text file
@@ -164,8 +158,8 @@ def modify_file3(unit_data , bldg_num_data, panel_name_data, panel_type_data, IP
 
     lines[14] = "00240	  C	   REV 	   DATE 			  AUTHOR			 COMMENTS"+"\n"
     lines[15] = "00250	  C        "+rev_data+"       "+date_data+"                            "+author_data+"                            "+comments_data+"\n"
-    lines[16] = "00260	  C        "+rev_data2+"       "+date_data2+"                            "+author_data2+"                            "+comments_data2+"\n"
-    lines[17] = "00270	  C        "+rev_data3+"       "+date_data3+"                            "+author_data3+"                            "+comments_data3+"\n"
+    lines[16] = "00260	  C       "+rev2+"    "+date2+"                    "+author2+"                    "+comments2+"\n"
+    lines[17] = "00270	  C       "+rev3+"    "+date3+"                    "+author3+"                    "+comments3+"\n"
     
 
     lines[27] = "00370	  DEFINE(OCC," + occ_data + ")"  +"\n"
@@ -192,7 +186,7 @@ def modify_file3(unit_data , bldg_num_data, panel_name_data, panel_type_data, IP
         file.writelines(lines)
 
 
-def modify_file4(unit_data , bldg_num_data, panel_name_data, panel_type_data, IP_address_data, panel_location_data, drawing_reference_data, rev_data, date_data, author_data, comments_data, rev_data2, date_data2, author_data2, comments_data2 , rev_data3, date_data3, author_data3, comments_data3, occ_data, fss_data, static_data, vfds_data, chw_data, hw_data, ra_data, sa_data, ma_data, oaz_data, ras_data, sas_data, sps_data, rmt_data, rmh_data):
+def modify_file4(rev2, date2, author2, comments2, rev3, date3, author3, comments3, unit_data , bldg_num_data, panel_name_data, panel_type_data, IP_address_data, panel_location_data, drawing_reference_data, rev_data, date_data, author_data, comments_data, occ_data, fss_data, static_data, vfds_data, chw_data, hw_data, ra_data, sa_data, ma_data, oaz_data, ras_data, sas_data, sps_data, rmt_data, rmh_data):
  
 
 # Read the content of the text file
@@ -211,8 +205,8 @@ def modify_file4(unit_data , bldg_num_data, panel_name_data, panel_type_data, IP
 
     lines[15] = "00160	  C	 REV 	 DATE			 AUTHOR			 COMMENTS"+"\n"
     lines[16] = "00170	  C       "+rev_data+"      "+date_data+"                    "+author_data+"                     "+comments_data+"\n"
-    lines[17] = "00180	  C       "+rev_data2+"      "+date_data2+"                    "+author_data2+"                     "+comments_data2+"\n"
-    lines[18] = "00190     C      "+rev_data3+"      "+date_data3+"                    "+author_data3+"                     "+comments_data3+"\n"
+    lines[17] = "00180	  C       "+rev2+"    "+date2+"                    "+author2+"                    "+comments2+"\n"
+    lines[18] = "00190     C       "+rev3+"    "+date3+"                    "+author3+"                    "+comments3+"\n"
     
 
     lines[28] = "00290     DEFINE(OCC,"+ occ_data + ")"  +"\n"
@@ -260,16 +254,6 @@ def form1():
         author_data = request.form['author']
         comments_data = request.form['comments']
 
-        rev_data2 = request.form['rev2']
-        date_data2 = request.form['date2']
-        author_data2 = request.form['author2']
-        comments_data2 = request.form['comments2']
-
-        rev_data3 = request.form['rev3']
-        date_data3 = request.form['date3']
-        author_data3 = request.form['author3']
-        comments_data3 = request.form['comments3']
-
         occ_data = request.form['occ']
         fss_data= request.form['fss']
         static_data= request.form['static']
@@ -287,9 +271,35 @@ def form1():
         bldg_num_data= request.form['bldg_num']
         unit_data= request.form['unit']
 
+        if 'radio_option' in request.form and request.form['radio_option'] == 'yes':
+        # If yes, extract additional fields
+            rev2 = request.form['rev2']
+            date2 = request.form['date']
+            author2 = request.form['author2']
+            comments2 = request.form['comments2']
+
+            rev3 = request.form['rev3']
+            date3 = request.form['date3']
+            author3 = request.form['author3']
+            comments3 = request.form['comments3']
 
 
-        modify_file1(unit_data , bldg_num_data,panel_name_data, panel_type_data, IP_address_data, panel_location_data, drawing_reference_data, rev_data, date_data, author_data, comments_data, rev_data2, date_data2, author_data2, comments_data2, rev_data3, date_data3, author_data3, comments_data3, occ_data, fss_data, static_data, vfds_data, chw_data, hw_data, sa_data, ctl_data, oaz_data, htg_data, hc_data, clg_data, rmt_data, rmh_data)
+
+        else:
+        # If no, set additional fields to empty strings
+            rev2 = ''
+            date2 =''
+            author2 =''
+            comments2 =''
+
+            rev3 = ''
+            date3 =''
+            author3 =''
+            comments3 =''
+
+
+
+        modify_file1(rev2, date2, author2, comments2, rev3, date3, author3, comments3,  unit_data , bldg_num_data,panel_name_data, panel_type_data, IP_address_data, panel_location_data, drawing_reference_data, rev_data, date_data, author_data, comments_data, occ_data, fss_data, static_data, vfds_data, chw_data, hw_data, sa_data, ctl_data, oaz_data, htg_data, hc_data, clg_data, rmt_data, rmh_data)
 
 
         # return response
@@ -318,17 +328,6 @@ def form2():
         author_data = request.form['author']
         comments_data = request.form['comments']
 
-        rev_data2 = request.form['rev2']
-        date_data2 = request.form['date2']
-        author_data2 = request.form['author2']
-        comments_data2 = request.form['comments2']
-
-        rev_data3 = request.form['rev3']
-        date_data3 = request.form['date3']
-        author_data3 = request.form['author3']
-        comments_data3 = request.form['comments3']
-
-
         occ_data = request.form['occ']
         fss_data= request.form['fss']
         static_data= request.form['static']
@@ -347,10 +346,37 @@ def form2():
         bldg_num_data= request.form['bldg_num']
         unit_data= request.form['unit']
 
+        if 'radio_option' in request.form and request.form['radio_option'] == 'yes':
+        # If yes, extract additional fields
+            rev2 = request.form['rev2']
+            date2 = request.form['date']
+            author2 = request.form['author2']
+            comments2 = request.form['comments2']
+
+            rev3 = request.form['rev3']
+            date3 = request.form['date3']
+            author3 = request.form['author3']
+            comments3 = request.form['comments3']
+
+
+
+        else:
+        # If no, set additional fields to empty strings
+            rev2 = ''
+            date2 =''
+            author2 =''
+            comments2 =''
+
+            rev3 = ''
+            date3 =''
+            author3 =''
+            comments3 =''
+
+
         
 
 
-        modify_file2(unit_data , bldg_num_data, panel_name_data, panel_type_data, IP_address_data, panel_location_data, drawing_reference_data, rev_data, date_data, author_data, comments_data, rev_data2, date_data2, author_data2, comments_data2, rev_data3, date_data3, author_data3, comments_data3, occ_data, fss_data, static_data, vfds_data, chw_data, phw_data, sa_data, ph_data, oaz_data, phs_data, sas_data, sps_data, oafl_data, oaflsp_data)
+        modify_file2(rev2, date2, author2, comments2, rev3, date3, author3, comments3, unit_data , bldg_num_data, panel_name_data, panel_type_data, IP_address_data, panel_location_data, drawing_reference_data, rev_data, date_data, author_data, comments_data, occ_data, fss_data, static_data, vfds_data, chw_data, phw_data, sa_data, ph_data, oaz_data, phs_data, sas_data, sps_data, oafl_data, oaflsp_data)
 
         
         return send_file("OP2.txt", as_attachment=True)
@@ -370,22 +396,10 @@ def form3():
         IP_address_data = request.form['IP_address']
         panel_location_data = request.form['panel_location']
         drawing_reference_data = request.form['drawing_reference']
-
         rev_data = request.form['rev']
         date_data = request.form['date']
         author_data = request.form['author']
         comments_data = request.form['comments']
-
-        rev_data2 = request.form['rev2']
-        date_data2 = request.form['date2']
-        author_data2 = request.form['author2']
-        comments_data2 = request.form['comments2']
-
-        rev_data3 = request.form['rev3']
-        date_data3 = request.form['date3']
-        author_data3 = request.form['author3']
-        comments_data3 = request.form['comments3']
-
 
         occ_data = request.form['occ']
         fss_data= request.form['fss']
@@ -406,9 +420,36 @@ def form3():
         bldg_num_data= request.form['bldg_num']
         unit_data= request.form['unit']
 
+        if 'radio_option' in request.form and request.form['radio_option'] == 'yes':
+        # If yes, extract additional fields
+            rev2 = request.form['rev2']
+            date2 = request.form['date']
+            author2 = request.form['author2']
+            comments2 = request.form['comments2']
+
+            rev3 = request.form['rev3']
+            date3 = request.form['date3']
+            author3 = request.form['author3']
+            comments3 = request.form['comments3']
 
 
-        modify_file3(unit_data , bldg_num_data, panel_name_data, panel_type_data, IP_address_data, panel_location_data, drawing_reference_data, rev_data, date_data, author_data, comments_data, rev_data2, date_data2, author_data2, comments_data2, rev_data3, date_data3, author_data3, comments_data3, occ_data, fss_data, static_data, vfds_data, chw_data, hw_data, ra_data, sa_data, ma_data, oaz_data, sas_data, sps_data, rmt_data, rmh_data, oafl_data, oaflsp_data)
+
+        else:
+        # If no, set additional fields to empty strings
+            rev2 = ''
+            date2 =''
+            author2 =''
+            comments2 =''
+
+            rev3 = ''
+            date3 =''
+            author3 =''
+            comments3 =''
+
+
+
+
+        modify_file3(rev2, date2, author2, comments2, rev3, date3, author3, comments3, unit_data , bldg_num_data, panel_name_data, panel_type_data, IP_address_data, panel_location_data, drawing_reference_data, rev_data, date_data, author_data, comments_data, occ_data, fss_data, static_data, vfds_data, chw_data, hw_data, ra_data, sa_data, ma_data, oaz_data, sas_data, sps_data, rmt_data, rmh_data, oafl_data, oaflsp_data)
 
         
         return send_file("OP3.txt", as_attachment=True)
@@ -428,21 +469,10 @@ def form4():
         IP_address_data = request.form['IP_address']
         panel_location_data = request.form['panel_location']
         drawing_reference_data = request.form['drawing_reference']
-        
         rev_data = request.form['rev']
         date_data = request.form['date']
         author_data = request.form['author']
         comments_data = request.form['comments']
-
-        rev_data2 = request.form['rev2']
-        date_data2 = request.form['date2']
-        author_data2 = request.form['author2']
-        comments_data2 = request.form['comments2']
-
-        rev_data3 = request.form['rev3']
-        date_data3 = request.form['date3']
-        author_data3 = request.form['author3']
-        comments_data3 = request.form['comments3']
 
         occ_data = request.form['occ']
         fss_data= request.form['fss']
@@ -462,9 +492,35 @@ def form4():
         bldg_num_data= request.form['bldg_num']
         unit_data= request.form['unit']
 
+        if 'radio_option' in request.form and request.form['radio_option'] == 'yes':
+        # If yes, extract additional fields
+            rev2 = request.form['rev2']
+            date2 = request.form['date']
+            author2 = request.form['author2']
+            comments2 = request.form['comments2']
+
+            rev3 = request.form['rev3']
+            date3 = request.form['date3']
+            author3 = request.form['author3']
+            comments3 = request.form['comments3']
+
+
+
+        else:
+        # If no, set additional fields to empty strings
+            rev2 = ''
+            date2 =''
+            author2 =''
+            comments2 =''
+
+            rev3 = ''
+            date3 =''
+            author3 =''
+            comments3 =''
+
         
 
-        modify_file4(unit_data , bldg_num_data, panel_name_data, panel_type_data, IP_address_data, panel_location_data, drawing_reference_data, rev_data, date_data, author_data, comments_data, rev_data2, date_data2, author_data2, comments_data2, rev_data3, date_data3, author_data3, comments_data3, occ_data, fss_data, static_data, vfds_data, chw_data, hw_data, ra_data, sa_data, ma_data, oaz_data, ras_data, sas_data, sps_data, rmt_data, rmh_data)
+        modify_file4(rev2, date2, author2, comments2, rev3, date3, author3, comments3, unit_data , bldg_num_data, panel_name_data, panel_type_data, IP_address_data, panel_location_data, drawing_reference_data, rev_data, date_data, author_data, comments_data, occ_data, fss_data, static_data, vfds_data, chw_data, hw_data, ra_data, sa_data, ma_data, oaz_data, ras_data, sas_data, sps_data, rmt_data, rmh_data)
 
         
         return send_file("OP4.txt", as_attachment=True)
