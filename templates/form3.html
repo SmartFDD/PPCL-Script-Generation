@@ -111,6 +111,13 @@
 
         <fieldset>
             <legend>Revision Information</legend>
+
+            <div>
+                <label>Multiple Revision:</label>
+                <label><input type="radio" name="rev_type" value="normal" checked> Normal</label>
+                <label><input type="radio" name="rev_type" value="additional"> Additional</label>
+            </div>
+
             <div class="form-group">
                 <label for="rev">Revision:</label>
                 <input type="number" id="rev" name="rev" required min="1"><br><br>
@@ -133,6 +140,57 @@
                 <label for="comments">Comments:</label>
                 <input type="text" id="comments" name="comments" required><br><br>
         
+            </div>
+
+            <div id="additionalInfo" style="display: none;"> 
+                <!-- Additional information fields -->
+                <div class="form-group">
+                    <label for="rev2">Revision:</label>
+                    <input type="number" id="rev2" name="rev2" required min="1"><br><br>
+    
+                </div>
+    
+                <div>
+                    <label for="date2">Date:</label>
+                    <input type="text" id="date2" name="date2" required><br><br>
+    
+                </div>
+    
+                <div>
+                    <label for="author2">Author:</label>
+                    <input type="text" id="author2" name="author2" required><br><br>
+    
+                </div>
+    
+                <div>
+                    <label for="comments2">Comments:</label>
+                    <input type="text" id="comments2" name="comments2" required><br><br>
+            
+                </div>
+
+                <div class="form-group">
+                    <label for="rev3">Revision:</label>
+                    <input type="number" id="rev3" name="rev3" required min="1"><br><br>
+    
+                </div>
+    
+                <div>
+                    <label for="date3">Date:</label>
+                    <input type="text" id="date3" name="date3" required><br><br>
+    
+                </div>
+    
+                <div>
+                    <label for="author3">Author:</label>
+                    <input type="text" id="author3" name="author3" required><br><br>
+    
+                </div>
+    
+                <div>
+                    <label for="comments3">Comments:</label>
+                    <input type="text" id="comments3" name="comments3" required><br><br>
+            
+                </div>
             </div>
         </fieldset>
 
@@ -252,6 +310,19 @@
         </div>
         <a href="/"><button type="button">Back to Home</button></a>
     </form>
+    <script>
+        // JavaScript to toggle display of additional information fields based on radio button selection
+        document.querySelectorAll('input[name="rev_type"]').forEach((radio) => {
+            radio.addEventListener('change', function() {
+                const additionalInfo = document.getElementById('additionalInfo');
+                if (this.value === 'additional') {
+                    additionalInfo.style.display = 'block';
+                } else {
+                    additionalInfo.style.display = 'none';
+                }
+            });
+        });
+    </script>
     
 </body>
 </html>
