@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preview</title>
+    <style>
+        /* Style for download buttons */
+        .btn {
+            display: inline-block;
+            background-color: #007bff;
+            color: #fff;
+            padding: 8px 16px;
+            text-align: center;
+            text-decoration: none;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        /* Hover effect for download buttons */
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Preview</h1>
+    <pre>{{ content }}</pre>
+
+    <!-- Add download buttons for each modified file -->
+    <a href="/download_file1" class="btn btn-primary" role="button">Download FCU FDD </a>
+    <a href="/download_file2" class="btn btn-primary" role="button">Download AHU 100% OA </a>
+    <a href="/download_file3" class="btn btn-primary" role="button">Download AHU FDD </a>
+    <a href="/download_file4" class="btn btn-primary" role="button">Download AHU BACNET </a> 
+    <!-- Add similar download buttons for other modified files -->
+
+</body>
+</html>

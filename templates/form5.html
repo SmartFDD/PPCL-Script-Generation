@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic HTML Page</title>
+    <style>
+        /* Add your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        p {
+            line-height: 1.6;
+            color: #666;
+        }
+        .image-container {
+            display: flex;
+            align-items: center; /* Vertically center the image and text */
+        }
+        .image-container img {
+            width: 100px; /* Adjust image width as needed */
+            height: auto;
+            margin-right: 10px; /* Add space between the image and text */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="image-container">
+            <a href="/">
+                <img src="{{url_for('static', filename='FDD LOGOS.png')}}" alt="Logo">
+            </a>
+            <h1>Heading for the information</h1>
+        </div>
+        <p>Instructions on how to choose said template goes here.</p>
+    </div>
+</body>
+</html>

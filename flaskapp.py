@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, send_file, make_response
 from tkinter import messagebox
-from flask import send_file
+from flask import send_file, session
 from io import StringIO
 
 # Global variables to store form data
@@ -49,6 +49,7 @@ author3 =''
 comments3 =''
 
 app = Flask(__name__)
+app.secret_key = 'your_secret_key'
 
 
 
@@ -105,7 +106,7 @@ def modify_file2(rev2, date2, author2, comments2, rev3, date3, author3, comments
 
 # Modify the specific line with custom text
 
-    lines[2] = "00120	C *********************FAN COIL UNIT ["+unit_data+"] SMART FDD***********************************"+"\n"
+    lines[2] = "00120     C *********************AIR HANDLER ["+unit_data+"] SMART FDD***********************************"+"\n"
     lines[7] = "00170     C PANEL NAME - " + panel_name_data +"\n"  
     lines[8] = "00180	  C PANEL TYPE - " + panel_type_data +"\n"  
     lines[9] = "00190	  C IP ADDRESS - " + IP_address_data +"\n" 
@@ -148,7 +149,7 @@ def modify_file3(rev2, date2, author2, comments2, rev3, date3, author3, comments
 
 # Modify the specific line with custom text
 
-    lines[2] = "00120	  C *********************FAN COIL UNIT ["+unit_data+"] SMART FDD***********************************"+"\n"
+    lines[2] = "00120     C *********************AIR HANDLER ["+unit_data+"] SMART FDD***********************************"+"\n"
     lines[7] = "00170	  C PANEL NAME - " + panel_name_data +"\n"  
     lines[8] = "00180	  C PANEL TYPE - " + panel_type_data +"\n"  
     lines[9] = "00190	  C IP ADDRESS - " + IP_address_data +"\n" 
@@ -186,6 +187,7 @@ def modify_file3(rev2, date2, author2, comments2, rev3, date3, author3, comments
         file.writelines(lines)
 
 
+
 def modify_file4(rev2, date2, author2, comments2, rev3, date3, author3, comments3, unit_data , bldg_num_data, panel_name_data, panel_type_data, IP_address_data, panel_location_data, drawing_reference_data, rev_data, date_data, author_data, comments_data, occ_data, fss_data, static_data, vfds_data, chw_data, hw_data, ra_data, sa_data, ma_data, oaz_data, ras_data, sas_data, sps_data, rmt_data, rmh_data):
  
 
@@ -195,7 +197,7 @@ def modify_file4(rev2, date2, author2, comments2, rev3, date3, author3, comments
 
 # Modify the specific line with custom text
 
-    lines[2] = "00120	  C *********************FAN COIL UNIT ["+unit_data+"] SMART FDD***********************************"+"\n"
+    lines[2] = "00030     C *********************AIR HANDLER ["+unit_data+"] SMART FDD***********************************"+"\n"
     lines[7] = "00080     C PANEL NAME - " + panel_name_data +"\n"  
     lines[8] = "00090     C PANEL TYPE - " + panel_type_data +"\n"  
     lines[9] = "00100     C IP ADDRESS - "+ IP_address_data +"\n" 
@@ -299,16 +301,17 @@ def form1():
 
 
 
-        modify_file1(rev2, date2, author2, comments2, rev3, date3, author3, comments3,  unit_data , bldg_num_data,panel_name_data, panel_type_data, IP_address_data, panel_location_data, drawing_reference_data, rev_data, date_data, author_data, comments_data, occ_data, fss_data, static_data, vfds_data, chw_data, hw_data, sa_data, ctl_data, oaz_data, htg_data, hc_data, clg_data, rmt_data, rmh_data)
-
-
-        # return response
-        return send_file("OP.txt", as_attachment=True)
+        # Call the modify_file1 function to modify the file
+            modify_file1(rev2, date2, author2, comments2, rev3, date3, author3, comments3, unit_data , bldg_num_data, panel_name_data, panel_type_data, IP_address_data, panel_location_data, drawing_reference_data, rev_data, date_data, author_data, comments_data, occ_data, fss_data, static_data, vfds_data, chw_data, hw_data, sa_data, ctl_data, oaz_data, htg_data, hc_data, clg_data, rmt_data, rmh_data)
         
-    
+        # Read the modified content from the file
+            with open("OP.txt", "r") as file:
+                modified_content = file.read()
+
+        return render_template('preview.html', content=modified_content)
+        
 
     else:
-        # Render the form template
         return render_template('form.html')
 
 
@@ -376,13 +379,17 @@ def form2():
         
 
 
-        modify_file2(rev2, date2, author2, comments2, rev3, date3, author3, comments3, unit_data , bldg_num_data, panel_name_data, panel_type_data, IP_address_data, panel_location_data, drawing_reference_data, rev_data, date_data, author_data, comments_data, occ_data, fss_data, static_data, vfds_data, chw_data, phw_data, sa_data, ph_data, oaz_data, phs_data, sas_data, sps_data, oafl_data, oaflsp_data)
+            modified_content = modify_file2(rev2, date2, author2, comments2, rev3, date3, author3, comments3, unit_data , bldg_num_data, panel_name_data, panel_type_data, IP_address_data, panel_location_data, drawing_reference_data, rev_data, date_data, author_data, comments_data, occ_data, fss_data, static_data, vfds_data, chw_data, phw_data, sa_data, ph_data, oaz_data, phs_data, sas_data, sps_data, oafl_data, oaflsp_data)
 
-        
-        return send_file("OP2.txt", as_attachment=True)
+        # Read the modified content from the file
+            with open("OP2.txt", "r") as file:
+                modified_content = file.read()
+
+        return render_template('preview.html', content=modified_content)
+
+        # return render_template('preview.html', content=modified_content)
 
     else:
-        # Render the form template
         return render_template('form2.html')
 
 
@@ -420,6 +427,8 @@ def form3():
         bldg_num_data= request.form['bldg_num']
         unit_data= request.form['unit']
 
+
+
         if 'radio_option' in request.form and request.form['radio_option'] == 'yes':
         # If yes, extract additional fields
             rev2 = request.form['rev2']
@@ -449,13 +458,17 @@ def form3():
 
 
 
-        modify_file3(rev2, date2, author2, comments2, rev3, date3, author3, comments3, unit_data , bldg_num_data, panel_name_data, panel_type_data, IP_address_data, panel_location_data, drawing_reference_data, rev_data, date_data, author_data, comments_data, occ_data, fss_data, static_data, vfds_data, chw_data, hw_data, ra_data, sa_data, ma_data, oaz_data, sas_data, sps_data, rmt_data, rmh_data, oafl_data, oaflsp_data)
+            modified_content = modify_file3(rev2, date2, author2, comments2, rev3, date3, author3, comments3, unit_data , bldg_num_data, panel_name_data, panel_type_data, IP_address_data, panel_location_data, drawing_reference_data, rev_data, date_data, author_data, comments_data, occ_data, fss_data, static_data, vfds_data, chw_data, hw_data, ra_data, sa_data, ma_data, oaz_data, sas_data, sps_data, rmt_data, rmh_data, oafl_data, oaflsp_data)
+
+        # Read the modified content from the file
+            with open("OP3.txt", "r") as file:
+                modified_content = file.read()
+
+        return render_template('preview.html', content=modified_content)
 
         
-        return send_file("OP3.txt", as_attachment=True)
 
     else:
-        # Render the form template
         return render_template('form3.html')
 
 
@@ -520,14 +533,94 @@ def form4():
 
         
 
-        modify_file4(rev2, date2, author2, comments2, rev3, date3, author3, comments3, unit_data , bldg_num_data, panel_name_data, panel_type_data, IP_address_data, panel_location_data, drawing_reference_data, rev_data, date_data, author_data, comments_data, occ_data, fss_data, static_data, vfds_data, chw_data, hw_data, ra_data, sa_data, ma_data, oaz_data, ras_data, sas_data, sps_data, rmt_data, rmh_data)
+            modified_content = modify_file4(rev2, date2, author2, comments2, rev3, date3, author3, comments3, unit_data , bldg_num_data, panel_name_data, panel_type_data, IP_address_data, panel_location_data, drawing_reference_data, rev_data, date_data, author_data, comments_data, occ_data, fss_data, static_data, vfds_data, chw_data, hw_data, ra_data, sa_data, ma_data, oaz_data, ras_data, sas_data, sps_data, rmt_data, rmh_data)
+
+        # Read the modified content from the file
+            with open("OP4.txt", "r") as file:
+                modified_content = file.read()
+
+        return render_template('preview.html', content=modified_content)
 
         
-        return send_file("OP4.txt", as_attachment=True)
+        # return render_template('preview.html', content=modified_content)
 
     else:
-        # Render the form template
         return render_template('form4.html')
+    
+# Add routes for downloading modified files
+
+@app.route('/download_file1')
+def download_file1():
+    # Return the modified file as an attachment for download
+    return send_file("OP.txt", as_attachment=True)
+
+
+
+# Add routes for downloading modified files
+
+@app.route('/download_file2')
+def download_file2():
+    # Return the modified file as an attachment for download
+    return send_file("OP2.txt", as_attachment=True)
+
+# Repeat the above process for other modified files (OP2.txt, OP3.txt, OP4.txt)
+
+
+# Add routes for downloading modified files
+
+@app.route('/download_file3')
+def download_file3():
+    # Return the modified file as an attachment for download
+    return send_file("OP3.txt", as_attachment=True)
+
+# Repeat the above process for other modified files (OP2.txt, OP3.txt, OP4.txt)
+
+
+# Add routes for downloading modified files
+
+@app.route('/download_file4')
+def download_file4():
+    # Return the modified file as an attachment for download
+    return send_file("OP4.txt", as_attachment=True)
+
+# Repeat the above process for other modified files (OP2.txt, OP3.txt, OP4.txt)
+
+# global modified_content
+
+# modified_content = None
+@app.route('/preview')
+def preview():
+    global modified_content  # Ensure we access the global variable
+
+    if modified_content is not None:
+        print(request.url)  # Print the URL for debugging
+
+        # Check which file's content to display based on the previous form submission
+        if 'OP.txt' in request.url:
+            session['file_to_download'] = 'OP.txt'
+            with open("OP.txt", "r") as file:
+                modified_content = file.read()
+        elif 'OP2.txt' in request.url:
+            session['file_to_download'] = 'OP2.txt'
+            with open("OP2.txt", "r") as file:
+                modified_content = file.read()
+        elif 'OP3.txt' in request.url:
+            session['file_to_download'] = 'OP3.txt'
+            with open("OP3.txt", "r") as file:
+                modified_content = file.read()
+        elif 'OP4.txt' in request.url:
+            session['file_to_download'] = 'OP4.txt'
+            with open("OP4.txt", "r") as file:
+                modified_content = file.read()
+        else:
+            modified_content = "No content available."
+
+        print("Modified Content:", modified_content)  # Print the modified content for debugging
+
+        return render_template('preview.html', content=modified_content)
+    else:
+        return render_template('preview.html', content="No content available.")
+    
 
 
 
