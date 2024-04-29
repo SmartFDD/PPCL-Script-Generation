@@ -21,18 +21,44 @@
         .btn:hover {
             background-color: #0056b3;
         }
+
+        .image-container {
+            display: flex;
+            align-items: center; /* Vertically center the image and text */
+        }
+
+        .image-container img {
+            width: 100px; /* Adjust image width as needed */
+            height: auto;
+            margin-right: 10px; /* Add space between the image and text */
+        }
+
     </style>
 </head>
 <body>
-    <h1>Preview</h1>
-    <pre>{{ content }}</pre>
+    <h1>Preview
+        <div class="image-container">
+            <a href="/">
+                <img src="{{url_for('static', filename='FDD LOGOS.png')}}" alt="Logo">
+            </a>
+            <p>Utilities and Engineering Services</p>
+        </div>
+    </h1>
+    {% if content %}
+        <pre>{{ content }}</pre>
+        <!-- Add download button for the modified file -->
+        <a href="/download/{{ fileName }}" id="downloadButton" class="btn" role="button">Download {{ fileName }}</a>
+    {% else %}
+        <p>File not found.</p>
+    {% endif %}
 
-    <!-- Add download buttons for each modified file -->
-    <a href="/download_file1" class="btn btn-primary" role="button">Download FCU FDD </a>
-    <a href="/download_file2" class="btn btn-primary" role="button">Download AHU 100% OA </a>
-    <a href="/download_file3" class="btn btn-primary" role="button">Download AHU FDD </a>
-    <a href="/download_file4" class="btn btn-primary" role="button">Download AHU BACNET </a> 
-    <!-- Add similar download buttons for other modified files -->
-
+    <script>
+        // Function to handle click event on download button
+        document.getElementById("downloadButton").addEventListener("click", function() {
+            // Dynamically change the file to download based on some condition or user input
+            var fileName = "{{ fileName }}"; // Set the file name dynamically here
+            window.location.href = "/download/" + fileName; // Redirect to the download link
+        });
+    </script>
 </body>
 </html>

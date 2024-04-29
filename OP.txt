@@ -1,21 +1,21 @@
 00100	C ---------------------------- PROGRAM AHU SMART FDD -----------------------------------
 00110	C
-00120	C *********************FAN COIL UNIT [asdada] SMART FDD***********************************
+00120	C *********************FAN COIL UNIT [m] SMART FDD***********************************
 00130	C UNIT NOTES
 00140	C 
 00150	C
 00160	C 
-00170	C PANEL NAME - askjdada
-00180	C PANEL TYPE - asdasd
-00190	C IP ADDRESS - asdad
+00170	C PANEL NAME - m
+00180	C PANEL TYPE - m
+00190	C IP ADDRESS - m
 00200	C
-00210	C PANEL LOCATION - adasdsad
-00220	C DRAWING REFERENCES - adsada
+00210	C PANEL LOCATION - m
+00220	C DRAWING REFERENCES - m
 00230	C
 00240	C	REV 	DATE			AUTHOR			COMMENTS
-00250	C       -3    asdasd                    asdasdsa                    asdasdasda
-00260	C	
-00270	C	
+00250	C       1    e                    w                    w
+00260	C                                                   
+00270	C                                                   
 00280	C
 00290	C ************SMART FDD VIRTUAL POINTS*****************
 00300	C "%A%_FDD"----------------------MAPPED VIRTUAL  LAO FOR FDD STATE
@@ -25,33 +25,33 @@
 00340	C
 00350	C **************EQUIPMENT POINTS******************
 00360	C OCCUPIED PONT: ---------------"OCC_POINT_NAME"
-00370	DEFINE(OCC,asdada)
+00370	DEFINE(OCC,w)
 00380	C AHU FAN START/STOP: ---------"FAN_POINT_NAME"
-00390	DEFINE(FSS,asdada)
+00390	DEFINE(FSS,w)
 00400	C SUP_STATIC_PRS: ----------------"SSP_POINT_NAME"
-00410	DEFINE(STATIC_P,asdada)
+00410	DEFINE(STATIC_P,w)
 00420	C VFD_SPEED: ----------------------,"VFD_POINT_NAME"
-00430	DEFINE(VFDS,asdada)
+00430	DEFINE(VFDS,w)
 00440	C CHW_VALVE: ---------------------"CHW_POINT_NAME"
-00450	DEFINE(CHW,asdada)
+00450	DEFINE(CHW,w)
 00460	C HW_VALVE: ----------------------"HW_POINT_NAME"
-00470	DEFINE(HW,asdada)
+00470	DEFINE(HW,w)
 00480	C SUP_AIR_TEMP: ------------------"SAT_POINT_NAME"
-00490	DEFINE(SA_T,asdada)
+00490	DEFINE(SA_T,e)
 00500	C CTL SETPOINT: -----------------"CTL_POINT_NAME"
-00510	DEFINE(CTL,asdada)
+00510	DEFINE(CTL,e)
 00520	C OA_AIR_TEMP:-------------------"OA_POINT_NAME"
-00530   DEFINE(OAZ,asdada)
+00530   DEFINE(OAZ,e)
 00540   C DAY HEATING SETPOINT------------"DAY_HEATING_NAME"
-00550   DEFINE(HTG,asdada)
+00550   DEFINE(HTG,e)
 00560   C HEAT COOL: --------------------"HEAT_COOL_NAME"
-00570   DEFINE(HC,asdada)
+00570   DEFINE(HC,e)
 00580   C DAY COOLING SETPOINT------------"DAY_COOL_NAME"
-00590   DEFINE(CLG,asdada)
+00590   DEFINE(CLG,e)
 00600   C ROOM_TEMP: -------------------"RMT_POINT_NAME"
-00610   DEFINE(RMT,asdada)
+00610   DEFINE(RMT,e)
 00620   C ROOM_HUM: --------------------"RMH_POINT_NAME"
-00630   DEFINE(RMH,asdada)
+00630   DEFINE(RMH,e)
 00632   C
 00635   C **************FDD POINT VALUES*********************
 00640   C FDD0 = NO FAULTS
@@ -71,7 +71,7 @@
 00780   ONPWRT(2530) 
 00790   C
 00800   C *************** DEFINITIONS ************************
-00810   DEFINE(A,asdada_-2)
+00810   DEFINE(A,m_1)
 00815   IF("%A%_FDD_PPCL_STATUS" .EQ. OFF) THEN GOTO 2530 
 00820   C *************** CREATE LOCAL VARIABLES **********************
 00830   LOCAL(SSP,RAT,MAT,OAT,SAT,"RH_AVG","RT_AVG","COS",OCCUPIED,"DELTAOS","DELTAOSMAX")
