@@ -5,6 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AHU FDD Form</title>
     <style>
+
+
+        body {
+            background-image: url('/static/FDD-at-FSU.png'); 
+            background-color: rgba(255, 255, 255, 0.95); /* White background with 80% opacity */
+            background-blend-mode: lighten; /* Blend the background image with the background color */
+            background-size: cover; /* Cover the entire viewport */
+            background-position: center; /* Center the image */
+            background-repeat: no-repeat; /* No repeating */
+            background-attachment: fixed; /* Fixed background */
+        }
         .form-container {
             display: grid;
             grid-template-columns: repeat(2, 1fr); /* Two columns */
@@ -56,8 +67,10 @@
 
     <h1>
         <div class="image-container">
-            <img src="{{url_for('static', filename='FDD LOGOS.png')}}" alt="Logo">
-            <p>Utilities and Engineering Services<br>PPCL Generator<br>AHU FDD</p>
+            <a href="/">
+                <img src="{{url_for('static', filename='FDD LOGOS.png')}}" alt="Logo">
+            </a>
+            PPCL Generator<br>AHU FDD</p>
         </div>
     </h1>
     
@@ -151,7 +164,7 @@
             </div>
 
             <div id="additional_info_fields2" style="display: none;">
-                <label for="date">Date:</label>
+                <label for="date2">Date:</label>
                 <input type="text" id="date2" name="date2"><br><br>
             </div>
 
@@ -172,7 +185,7 @@
             </div>
 
             <div id="additional_info_fields6" style="display: none;">
-                <label for="date">Date:</label>
+                <label for="date3">Date:</label>
                 <input type="text" id="date3" name="date3"><br><br>
             </div>
 
@@ -298,10 +311,10 @@
 
         </fieldset> 
 
-        <div class="column-buttons">
+        <!-- <div class="column-buttons">
             <input type="submit" value="Submit">
-        </div>
-        <a href="/"><button type="button">Back to Home</button></a>
+        </div> -->
+        <input type="submit" value="Submit"> 
     </form>
     <!-- JavaScript to toggle visibility of additional fields -->
     <script>

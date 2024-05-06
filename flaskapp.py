@@ -83,9 +83,9 @@ def modify_file1(rev2, date2, author2, comments2, rev3, date3, author3, comments
     lines[12] = "00220	C DRAWING REFERENCES - " + drawing_reference_data +"\n" 
 
     lines[14] = "00240	C	REV 	DATE			AUTHOR			COMMENTS"+"\n"
-    lines[15] = "00250	C       "+rev_data+"    "+date_data+"                    "+author_data+"                    "+comments_data+"\n"
-    lines[16] = "00260	C       "+rev2+"    "+date2+"                    "+author2+"                    "+comments2+"\n"
-    lines[17] = "00270	C       "+rev3+"    "+date3+"                    "+author3+"                    "+comments3+"\n"
+    lines[15] = "00250	C       "+rev_data+"       "+date_data+"                       "+author_data+"                       "+comments_data+"\n"
+    lines[16] = "00260	C       "+rev2+"       "+date2+"                       "+author2+"                       "+comments2+"\n"
+    lines[17] = "00270	C       "+rev3+"       "+date3+"                       "+author3+"                       "+comments3+"\n"
     lines[27] = "00370	DEFINE(OCC," + occ_data + ")"  +"\n"
     lines[29] = "00390	DEFINE(FSS," + fss_data + ")"  +"\n" 
     lines[31] = "00410	DEFINE(STATIC_P," + static_data + ")" +"\n" 
@@ -125,9 +125,9 @@ def modify_file2(rev2, date2, author2, comments2, rev3, date3, author3, comments
     lines[12] = "00220	  C DRAWING REFERENCES - " + drawing_reference_data +"\n" 
 
     lines[14] = "00240	  C	  REV 	  DATE			  AUTHOR			  COMMENTS"+"\n"
-    lines[15] = "00250	  C        "+rev_data+"       "+date_data+"                      "+author_data+"                          "+comments_data+"\n"
-    lines[16] = "00260	  C       "+rev2+"    "+date2+"                    "+author2+"                    "+comments2+"\n"
-    lines[17] = "00270	  C       "+rev3+"    "+date3+"                    "+author3+"                    "+comments3+"\n"
+    lines[15] = "00250	  C       "+rev_data+"       "+date_data+"                       "+author_data+"                               "+comments_data+"\n"
+    lines[16] = "00260	  C       "+rev2+"       "+date2+"                       "+author2+"                               "+comments2+"\n"
+    lines[17] = "00270	  C       "+rev3+"       "+date3+"                       "+author3+"                               "+comments3+"\n"
     
     lines[27] = "00370     DEFINE(OCC," + occ_data + ")"  +"\n"
     lines[29] = "00390	  DEFINE(FSS," + fss_data + ")"  +"\n" 
@@ -169,8 +169,8 @@ def modify_file3(rev2, date2, author2, comments2, rev3, date3, author3, comments
 
     lines[14] = "00240	  C	   REV 	   DATE 			  AUTHOR			 COMMENTS"+"\n"
     lines[15] = "00250	  C        "+rev_data+"       "+date_data+"                            "+author_data+"                            "+comments_data+"\n"
-    lines[16] = "00260	  C       "+rev2+"    "+date2+"                    "+author2+"                    "+comments2+"\n"
-    lines[17] = "00270	  C       "+rev3+"    "+date3+"                    "+author3+"                    "+comments3+"\n"
+    lines[16] = "00260	  C        "+rev2+"       "+date2+"                            "+author2+"                            "+comments2+"\n"
+    lines[17] = "00270	  C        "+rev3+"       "+date3+"                            "+author3+"                            "+comments3+"\n"
     
 
     lines[27] = "00370	  DEFINE(OCC," + occ_data + ")"  +"\n"
@@ -216,9 +216,9 @@ def modify_file4(rev2, date2, author2, comments2, rev3, date3, author3, comments
     lines[13] = "00140	  C DRAWING REFERENCES - " + drawing_reference_data +"\n" 
 
     lines[15] = "00160	  C	 REV 	 DATE			 AUTHOR			 COMMENTS"+"\n"
-    lines[16] = "00170	  C       "+rev_data+"      "+date_data+"                    "+author_data+"                     "+comments_data+"\n"
-    lines[17] = "00180	  C       "+rev2+"    "+date2+"                    "+author2+"                    "+comments2+"\n"
-    lines[18] = "00190     C       "+rev3+"    "+date3+"                    "+author3+"                    "+comments3+"\n"
+    lines[16] = "00170	  C      "+rev_data+"       "+date_data+"                       "+author_data+"                       "+comments_data+"\n"
+    lines[17] = "00180	  C      "+rev2+"       "+date2+"                       "+author2+"                       "+comments2+"\n"
+    lines[18] = "00190     C      "+rev3+"       "+date3+"                       "+author3+"                       "+comments3+"\n"
     
 
     lines[28] = "00290     DEFINE(OCC,"+ occ_data + ")"  +"\n"

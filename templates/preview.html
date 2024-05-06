@@ -5,6 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Preview</title>
     <style>
+
+        body {
+            background-image: url('/static/FDD-at-FSU.png'); 
+            background-color: rgba(255, 255, 255, 0.95); /* White background with 80% opacity */
+            background-blend-mode: lighten; /* Blend the background image with the background color */
+            background-size: cover; /* Cover the entire viewport */
+            background-position: center; /* Center the image */
+            background-repeat: no-repeat; /* No repeating */
+            background-attachment: fixed; /* Fixed background */
+        }
+
         /* Style for download buttons */
         .btn {
             display: inline-block;
@@ -38,7 +49,7 @@
 <body>
     <h1>Preview
         <div class="image-container">
-            <a href="/">
+            <a href="javascript:history.back()">
                 <img src="{{url_for('static', filename='FDD LOGOS.png')}}" alt="Logo">
             </a>
             <p>Utilities and Engineering Services</p>
@@ -47,7 +58,7 @@
     {% if content %}
         <pre>{{ content }}</pre>
         <!-- Add download button for the modified file -->
-        <a href="/download/{{ fileName }}" id="downloadButton" class="btn" role="button">Download {{ fileName }}</a>
+        <a href="/download/{{ fileName }}" id="downloadButton" class="btn" role="button">Download </a>
     {% else %}
         <p>File not found.</p>
     {% endif %}

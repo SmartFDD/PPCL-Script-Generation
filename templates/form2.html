@@ -5,6 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AHU100 OA Form</title>
     <style>
+
+        body {
+            background-image: url('/static/FDD-at-FSU.png'); 
+            background-color: rgba(255, 255, 255, 0.95); /* White background with 80% opacity */
+            background-blend-mode: lighten; /* Blend the background image with the background color */
+            background-size: cover; /* Cover the entire viewport */
+            background-position: center; /* Center the image */
+            background-repeat: no-repeat; /* No repeating */
+            background-attachment: fixed; /* Fixed background */
+        }
         .form-container {
             display: grid;
             grid-template-columns: repeat(2, 1fr); /* Two columns */
@@ -57,8 +67,10 @@
     <h1>
         <!-- <img src="{{url_for('static', filename='FDD LOGOS.png')}}" style="width: 200px; height: auto;"> -->
         <div class="image-container">
-            <img src="{{url_for('static', filename='FDD LOGOS.png')}}" alt="Logo">
-            <p>Utilities and Engineering Services<br>PPCL Generator<br>AHU100 OA</p>
+            <a href="/">
+                <img src="{{url_for('static', filename='FDD LOGOS.png')}}" alt="Logo">
+            </a>
+            PPCL Generator<br>AHU100 OA</p>
         </div>
     </h1>
     
@@ -288,11 +300,11 @@
 
         </fieldset>
                 
-        <div class="column-buttons">
+        <!-- <div class="column-buttons">
 
-            <input type="submit" value="Submit"> <!-- Placed in the right column -->
-        </div>
-        <a href="/"><button type="button">Back to Home</button></a>
+            <input type="submit" value="Submit"> 
+        </div> -->
+        <input type="submit" value="Submit"> 
 
         
 
