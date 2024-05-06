@@ -129,10 +129,9 @@
 
             <div>
                 <label for="bldg_num">Building Number:</label>
-                <input type="number" id="bldg_num" name="bldg_num" required min="1"><br><br>
-
+                <input type="text" id="bldg_num" name="bldg_num" required pattern="\d{4}" title="Please enter a 4-digit number"><br><br>
             </div>
-
+            
             <div>
                 <label for="unit">Unit Number:</label>
                 <input type="text" id="unit" name="unit" required><br><br>

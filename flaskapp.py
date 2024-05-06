@@ -100,7 +100,7 @@ def modify_file1(rev2, date2, author2, comments2, rev3, date3, author3, comments
     lines[49] = "00590   DEFINE(CLG," + clg_data + ")" +"\n" 
     lines[51] = "00610   DEFINE(RMT," + rmt_data + ")" +"\n" 
     lines[53] = "00630   DEFINE(RMH,"+ rmh_data + ")" +"\n" 
-    lines[73] = "00810   DEFINE(A," + unit_data+"_"+bldg_num_data +")" +"\n"
+    lines[73] = "00810   DEFINE(A," + bldg_num_data +"_"+unit_data+")" +"\n"
 
 
 # Write the modified content back to the text file
@@ -143,7 +143,7 @@ def modify_file2(rev2, date2, author2, comments2, rev3, date3, author3, comments
     lines[49] = "00610     DEFINE(SPS," + sps_data + ")" +"\n" 
     lines[51] = "00654     DEFINE(OAFL," + oafl_data + ")" +"\n" 
     lines[53] = "00658     DEFINE(OAFLSP,"+ oaflsp_data + ")" +"\n" 
-    lines[75] = "00880     DEFINE(A," + unit_data+"_"+bldg_num_data +")" +"\n"
+    lines[75] = "00880     DEFINE(A," + bldg_num_data +"_"+unit_data+")" +"\n"
 
 
 # Write the modified content back to the text file
@@ -189,7 +189,7 @@ def modify_file3(rev2, date2, author2, comments2, rev3, date3, author3, comments
     lines[53] = "00650     DEFINE(RMH," + rmh_data + ")" +"\n"
     lines[55] = "00654     DEFINE(OAFL," + oafl_data + ")" +"\n"
     lines[57] = "00658     DEFINE(OAFLSP," + oaflsp_data + ")" +"\n"
-    lines[81] = "00880     DEFINE(A," + unit_data+"_"+bldg_num_data +")" +"\n"
+    lines[81] = "00880     DEFINE(A," + bldg_num_data +"_"+unit_data+")" +"\n"
 
 
 # Write the modified content back to the text file
@@ -238,7 +238,7 @@ def modify_file4(rev2, date2, author2, comments2, rev3, date3, author3, comments
 
     lines[54] = "00550     DEFINE(RMT," + rmt_data + ")" +"\n" 
     lines[56] = "00570     C DEFINE(RMH,"+ rmh_data + ")" +"\n" 
-    lines[79] = "00810     DEFINE(A," + unit_data+"_"+bldg_num_data +")" +"\n"
+    lines[79] = "00810     DEFINE(A," + bldg_num_data +"_"+unit_data+")" +"\n"
 
 # Write the modified content back to the text file
     with open("OP4.txt", "w") as file:
