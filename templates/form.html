@@ -21,6 +21,23 @@
             gap: 20px; /* Gap between columns */
         }
 
+                /* Style for download buttons */
+        .btn {
+            display: inline-block;
+            background-color: #00ffd0;
+            color: #040300;
+            padding: 8px 16px;
+            text-align: center;
+            text-decoration: none;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        /* Hover effect for download buttons */
+        .btn:hover {
+            background-color: #00adb3;
+        }
+
         .form-group {
             margin-bottom: 20px;
         }
@@ -111,10 +128,9 @@
 
             <div>
                 <label for="bldg_num">Building Number:</label>
-                <input type="number" id="bldg_num" name="bldg_num" required min="1"><br><br>
-
+                <input type="text" id="bldg_num" name="bldg_num" required pattern="\d{4}" title="Please enter a 4-digit number"><br><br>
             </div>
-
+            
             <div>
                 <label for="unit">Unit Number:</label>
                 <input type="text" id="unit" name="unit" required><br><br>
@@ -295,11 +311,11 @@
             </div>
         </fieldset>
 
-    <!-- <div class="column-buttons">
+    <div class="column-buttons">
 
-        <input type="submit" value="Submit"> Placed in the right column
-    </div> -->
-        <input type="submit" value="Submit"> 
+        <!-- <input type="submit" value="Submit"> Placed in the right column -->
+    </div>           
+        <input type="submit" value="Submit" id="downloadButton" class="btn" role="button"> 
     </form>
     <!-- JavaScript to toggle visibility of additional fields -->
     <script>
