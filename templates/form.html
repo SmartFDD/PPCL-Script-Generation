@@ -13,7 +13,8 @@
             background-size: cover; /* Cover the entire viewport */
             background-position: center; /* Center the image */
             background-repeat: no-repeat; /* No repeating */
-            background-attachment: fixed; /* Fixed background */
+            background-attachment: fixed;
+            font-family:'Times New Roman', Times, serif 
         }
         .form-container {
             display: grid;
@@ -41,12 +42,6 @@
         .form-group {
             margin-bottom: 20px;
         }
-
-        /* Adjust styles as needed */
-        label {
-            font-weight: bold;
-        }
-
 
         input[type="submit"],
         button[type="button"] {
@@ -77,6 +72,15 @@
             margin-right: 10px; /* Add space between the image and text */
         }
 
+        legend{
+            font-weight: bold;
+        }
+
+        .bold-text {
+            font-weight: bold;
+        }
+
+
     </style>
     <!-- Include jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -96,7 +100,7 @@
         </div>
     </h1>
     <!-- Instruction Page button -->
-    <a href="/form5" target="_blank" class="btn" role="button">Instruction Page</a>
+    <a href="/form5" target="_blank" class="btn bold-text" role="button">Instruction Page</a>
 
 
     <form action="/form" method="POST" class="form-container">
@@ -191,6 +195,7 @@
                 <label for="date">Date:</label>
                 <input type="text" id="date2" name="date2"><br><br>
             </div>
+            
 
             <div id="additional_info_fields3" style="display: none;">
                 <label for="author2">Author:</label>
@@ -323,7 +328,8 @@
 
         <!-- <input type="submit" value="Submit"> Placed in the right column -->
     </div>           
-        <input type="submit" value="Submit" id="downloadButton" class="btn" role="button"> 
+        <input type="submit" value="Submit" id="downloadButton" class="btn bold-text" role="button">
+
     </form>
     <!-- JavaScript to toggle visibility of additional fields -->
     <script>
@@ -373,6 +379,18 @@
     $(function() {
         // Initialize Datepicker
         $("#date").datepicker({
+            dateFormat: "mm-dd-yy" // Set the date format
+        });
+    });
+    $(function() {
+        // Initialize Datepicker
+        $("#date2").datepicker({
+            dateFormat: "mm-dd-yy" // Set the date format
+        });
+    });
+    $(function() {
+        // Initialize Datepicker
+        $("#date3").datepicker({
             dateFormat: "mm-dd-yy" // Set the date format
         });
     });

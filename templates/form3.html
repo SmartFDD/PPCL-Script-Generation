@@ -15,6 +15,7 @@
             background-position: center; /* Center the image */
             background-repeat: no-repeat; /* No repeating */
             background-attachment: fixed; /* Fixed background */
+            font-family:'Times New Roman', Times, serif 
         }
         .form-container {
             display: grid;
@@ -42,12 +43,6 @@
             margin-bottom: 20px;
         }
 
-        label {
-            font-weight: bold;
-        }
-
-        /* input[type="text"],
-        input[type="number"], */
         input[type="submit"],
         button[type="button"] {
             width: 100%;
@@ -77,6 +72,14 @@
             margin-right: 10px;
         }
 
+        legend{
+            font-weight: bold;
+        }
+
+        .bold-text {
+            font-weight: bold;
+        }
+
     </style>
 
     <!-- Include jQuery library -->
@@ -96,7 +99,7 @@
         </div>
     </h1>
     <!-- Instruction Page button -->
-    <a href="/form5" target="_blank" class="btn" role="button">Instruction Page</a>
+    <a href="/form5" target="_blank" class="btn bold-text" role="button">Instruction Page</a>
     
     <form action="/form3" method="POST" class="form-container">
         <fieldset>
@@ -337,7 +340,7 @@
         <div class="column-buttons">
             <!-- <input type="submit" value="Submit"> -->
         </div>
-        <input type="submit" value="Submit" id="downloadButton" class="btn" role="button"> 
+        <input type="submit" value="Submit" id="downloadButton" class="btn bold-text" role="button"> 
     </form>
     <!-- JavaScript to toggle visibility of additional fields -->
     <script>
@@ -389,6 +392,18 @@
     $(function() {
         // Initialize Datepicker
         $("#date").datepicker({
+            dateFormat: "mm-dd-yy" // Set the date format
+        });
+    });
+    $(function() {
+        // Initialize Datepicker
+        $("#date2").datepicker({
+            dateFormat: "mm-dd-yy" // Set the date format
+        });
+    });
+    $(function() {
+        // Initialize Datepicker
+        $("#date3").datepicker({
             dateFormat: "mm-dd-yy" // Set the date format
         });
     });
